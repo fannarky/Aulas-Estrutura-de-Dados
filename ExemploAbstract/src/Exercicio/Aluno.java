@@ -3,7 +3,7 @@ package Exercicio;
 public abstract class Aluno {
 
 	private String nome;
-	
+	public int ra;
 	private int idade;
 	
 	public Aluno(String nome, int idade) {

@@ -11,6 +11,18 @@ public class Program {
 		System.out.println(a2);
 		System.out.println(a3);
 
+		
+		Cadastro cad = new Cadastro();
+		cad.adicionaAluno(a1);
+		cad.adicionaAluno(a2);
+		cad.adicionaAluno(a3);
+		
+		cad.exibeTodos();
+		cad.exibeAprovados();
+		cad.exibeAlunoGraduacao();
+		cad.buscaAluno(3);
+		
+		
 	}
 
 }
