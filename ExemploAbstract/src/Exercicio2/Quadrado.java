@@ -9,7 +9,6 @@ public class Quadrado extends Figura{
 		super(cor, espessura);
 		// TODO Auto-generated constructor stub
 		this.largura = largura;
-		this.altura = altura;
 	}
 
 	@Override
@@ -20,7 +19,7 @@ public class Quadrado extends Figura{
 
 	@Override
 	public String toString() {
-		return "Quadrado [largura=" + largura + ", altura=" + altura + ", Área: " + calcularArea() + "]";
+		return "Quadrado [largura=" + largura + ", Área: " + calcularArea() + "]";
 	}
 	
 	
