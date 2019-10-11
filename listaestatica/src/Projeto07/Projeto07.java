@@ -1,5 +1,7 @@
 package Projeto07;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Formatter;
@@ -86,6 +88,70 @@ public class Projeto07 {
 			}catch(IOException ex) {}
 		}
 		
+	}
+	
+	private static void gravaArquivoCsv(ListaObj<Aluno> lista) {
+		// TODO Auto-generated method stub
+		FileWriter f = null;
+		Formatter s = null;
+		boolean erro = false;
+		
+		try {
+			f = new FileWriter("Aluno.csv", true);
+			s = new Formatter(f);
+		}catch(IOException ex) {
+			System.err.println("Erro ao abrir o arquivo " +ex.getMessage());
+			System.exit(1);
+		}
+		
+		try {
+			for(int i = 0 ; i < lista.getTamanho() ; i++) {
+				Aluno a = lista.getElemento(i);
+				s.format("%d %s %.2f%n", a.getRA(), a.getNome(), a.getNota());
+			}
+		}catch(FormatterClosedException ex) {
+			System.out.println("Erro ao gravar no arquivo, "+ ex.getMessage());
+			erro = true;
+		}
+		finally {
+			s.close();
+			try {
+				f.close();
+			}catch(IOException ex) {}
+		}
+		
+	}
+	
+	public static void leExibeArquivoTxt() {
+		FileReader arq = null;
+		Scanner entrada = null;
+		
+		try {
+			arq = new FileReader("aluno.txt");
+			entrada = new Scanner(arq);
+		}catch(IOException ex) {
+						
+		}
+		
+		
+		try {
+			
+			System.out.printf("%-10d%-10s%7.2f \n", "Ra", "NOME", "NOTA");
+			while(entrada.hasNext()) {
+				int RA = entrada.nextInt();
+				String nome = entrada.next();
+				double nota = entrada.nextDouble();
+				
+				System.out.printf("\n %-10d%-10s%7.2f", RA, nome, nota);
+			}
+		}catch(Exception ex) {
+			
+		}
+		
+		try {
+			entrada.close();
+			arq.close();
+		}catch(Exception ex) {}
 	}
 
 }
